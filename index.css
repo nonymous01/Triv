@@ -226,9 +226,11 @@ button:hover {
     font-size: 4.5vw;
     padding-top: 2em;
     position: relative;
+    bottom: 10px;
     justify-content: center;
     
   }
+
   .titre {
     z-index: 1;
     background-color:  #2256A3;

@@ -1,11 +1,11 @@
 var quizData = [
   {
-    "question": "Qui était l'entraîneur de l'Égypte lors de la CAN 2017 ?",
+    "question": "Quel pays était dirigé par l'entraîneur Gernot Rohr lors de la CAN 2019 ?",
     "answers": [
-      {"option": "Javier Aguirre", "correct": false},
-      {"option": "Aliou Cissé", "correct": false},
-      {"option": "Hector Cuper", "correct": true},
-      {"option": "Hervé Renard", "correct": false}
+      {"option": "Ghana", "correct": false},
+      {"option": "Cameroun", "correct": false},
+      {"option": "Maroc", "correct": false},
+      {"option": "Nigeria", "correct": true}
     ]
   }
 ];
@@ -49,30 +49,37 @@ function populateQuiz(quizData) {
   answerContainer.appendChild(gridContainer);
 }
 
+function resetQuizState() {
+  answerCheckedToday = false;
+  setCookie("hasPlayedToday", "false", 1);
+}
+
+function canPlayQuiz() {
+  var lastPlayedTime = getCookie("lastPlayed");
+  if (!lastPlayedTime) {
+    return true;
+  }
+
+  var lastPlayed = new Date(lastPlayedTime);
+  var currentTime = new Date();
+  return lastPlayed.getDate() !== currentTime.getDate();
+}
+
 function checkAnswerAndPlayAgainTomorrow() {
   var currentDate = new Date();
   var currentHour = currentDate.getHours();
   var currentMinute = currentDate.getMinutes();
 
-  // Ajout de l'heure dans tous les messages
   var playedTime = currentHour + ":" + (currentMinute < 10 ? "0" : "") + currentMinute;
 
-  if (answerCheckedToday) {
-    showAlert("Vous avez déjà vérifié la réponse aujourd'hui à " + playedTime + ". Revenez demain à la même heure pour un nouveau quiz !");
-    return;
-  }
-
-  let hasPlayedToday = getCookie("hasPlayedToday");
-  if (hasPlayedToday === "true") {
-    var remainingTime = calculateRemainingTime(currentHour, currentMinute);
-    showAlert("Vous avez déjà joué aujourd'hui à " + playedTime + ". Revenez demain à la même heure pour un nouveau quiz ! Il vous reste " + remainingTime + " minutes pour jouer aujourd'hui.");
+  if (!canPlayQuiz()) {
+    showAlert("Vous avez déjà joué aujourd'hui. Revenez demain à la même heure pour un nouveau quiz !");
     return;
   }
 
   var selectedAnswer = document.querySelector('input[name="q1"]:checked');
   if (!selectedAnswer) {
-    var remainingTime = calculateRemainingTime(currentHour, currentMinute);
-    showAlert("Veuillez sélectionner une réponse à " + playedTime + ". Il vous reste " + remainingTime + " minutes pour jouer aujourd'hui.");
+    showAlert("Veuillez sélectionner une réponse ");
     return;
   }
 
@@ -85,11 +92,10 @@ function checkAnswerAndPlayAgainTomorrow() {
     resultMessage = "Félicitations !!! Rendez-vous demain à la même heure (" + playedTime + ") pour un nouveau Quiz.";
     showSuccessAlert(resultMessage);
   } else {
-    var remainingTime = calculateRemainingTime(currentHour, currentMinute);
     resultMessage =
       "Désolé, ce n'est pas la bonne réponse. La bonne réponse est : " +
       getCorrectAnswer(currentQuizQuestion) +
-      ". Revenez demain à la même heure (" + playedTime + ") pour un nouveau Quiz. Il vous reste " + remainingTime + " minutes pour jouer aujourd'hui.";
+      ". Revenez demain à la même heure pour un nouveau Quiz. ";
     showAlert(resultMessage);
     document.getElementById(labelId).style.backgroundColor = "red";
 
@@ -100,17 +106,16 @@ function checkAnswerAndPlayAgainTomorrow() {
   answerCheckedToday = true;
   setCookie("hasPlayedToday", "true", 1);
 
-  // Ajout de l'heure dans le message de succès
-  if (currentHour === 12 && currentMinute === 0) {
-    showSuccessAlert("Félicitations !!! Rendez-vous demain à la même heure (" + playedTime + ") pour un nouveau Quiz.");
-  }
+  var nextDay = new Date(currentDate);
+  nextDay.setDate(nextDay.getDate() + 1);
+  nextDay.setHours(12, 0, 0, 0);
+  setCookie("nextQuizReset", nextDay.toISOString(), 1);
 
   animateQuizEnd();
   setCookie("lastPlayed", new Date().toISOString(), 1);
 }
 
 function calculateRemainingTime(currentHour, currentMinute) {
-  // Calcul du temps restant jusqu'à l'heure de jeu suivante
   var remainingMinutes = 60 - currentMinute;
 
   if (currentHour === 12) {
@@ -167,4 +172,9 @@ function closeCustomAlert() {
 
 function closeCustomAlertSuccess() {
   document.getElementById('custom-alert-success').style.display = 'none';
+}
+
+// Appelez cette fonction au début pour vérifier si l'utilisateur peut jouer au quiz maintenant.
+if (canPlayQuiz()) {
+  resetQuizState();
 }
