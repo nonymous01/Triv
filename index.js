@@ -1,23 +1,17 @@
 var quizData = [
-  
-     
-      {
-        "question": "Quel pays a organisé la CAN pour la première fois en 1962 ?",
-        "answers": [
-          {"option": "Égypte", "correct": false},
-          {"option": "Ghana", "correct": false},
-          {"option": "Soudan", "correct": false},
-          {"option": "Éthiopie", "correct": true}
-        ]
-      },
-    
-  
+  {
+    "question": "Quel pays a organisé la CAN pour la première fois en 1962 ?",
+    "answers": [
+      {"option": "Égypte", "correct": false},
+      {"option": "Ghana", "correct": false},
+      {"option": "Soudan", "correct": false},
+      {"option": "Éthiopie", "correct": true}
     ]
-
+  }
+];
 
 var answerCheckedToday = false;
 
-checkAndSetDailyCookie();
 populateQuiz(quizData);
 
 function populateQuiz(quizData) {
@@ -55,44 +49,15 @@ function populateQuiz(quizData) {
   answerContainer.appendChild(gridContainer);
 }
 
-function checkAndSetDailyCookie() {
-  let lastPlayed = getCookie("lastPlayed");
-  let hasPlayedToday = getCookie("hasPlayedToday");
-
-  if (!lastPlayed) {
-    // Si lastPlayed n'existe pas, c'est la première visite, donc définissez les cookies
-    setCookie("lastPlayed", new Date().toISOString(), 1);
-    setCookie("hasPlayedToday", "false", 1);
-    populateQuiz(quizData);
-    return;
-  }
-
-  let lastPlayedDate = new Date(lastPlayed);
-  let now = new Date();
-
-  if (
-    now.getHours() === 0 && now.getMinutes() === 0 && now.getSeconds() === 0 &&
-    (
-      lastPlayedDate.getDate() !== now.getDate() ||
-      lastPlayedDate.getMonth() !== now.getMonth() ||
-      lastPlayedDate.getFullYear() !== now.getFullYear()
-    )
-  ) {
-    // Réinitialisez le cookie et affichez une nouvelle question si la date a changé à minuit
-    setCookie("lastPlayed", new Date().toISOString(), 1);
-    setCookie("hasPlayedToday", "false", 1);
-    answerCheckedToday = false;
-    populateQuiz(quizData);
-  } else if (hasPlayedToday === "true") {
-    // Si l'utilisateur a déjà joué aujourd'hui, affichez le message d'alerte
-    showAlert("Vous avez déjà joué aujourd'hui. Revenez demain pour un nouveau quiz !");
-  }
-}
-
-
 function checkAnswerAndPlayAgainTomorrow() {
   if (answerCheckedToday) {
     showAlert("Vous avez déjà vérifié la réponse aujourd'hui. Revenez demain pour un nouveau quiz !");
+    return;
+  }
+
+  let hasPlayedToday = getCookie("hasPlayedToday");
+  if (hasPlayedToday === "true") {
+    showAlert("Vous avez déjà joué aujourd'hui. Revenez demain pour un nouveau quiz !");
     return;
   }
 
@@ -108,7 +73,7 @@ function checkAnswerAndPlayAgainTomorrow() {
   var currentQuizQuestion = quizData.find(question => question.question === currentQuestion);
 
   if (currentQuizQuestion && selectedAnswer.value === getCorrectAnswer(currentQuizQuestion)) {
-    resultMessage = "Félicitations !!!  Rendez-vous demain à la même heure pour un nouveau Quiz.";
+    resultMessage = "Félicitations !!! Rendez-vous demain à la même heure pour un nouveau Quiz.";
     showSuccessAlert(resultMessage);
   } else {
     resultMessage =
@@ -118,7 +83,6 @@ function checkAnswerAndPlayAgainTomorrow() {
     showAlert(resultMessage);
     document.getElementById(labelId).style.backgroundColor = "red";
 
-    // Mettez en surbrillance la bonne réponse en vert
     var correctAnswerId = "q1" + String.fromCharCode(97 + currentQuizQuestion.answers.findIndex(answer => answer.correct));
     document.getElementById(correctAnswerId + "-label").style.backgroundColor = "green";
   }
@@ -129,7 +93,6 @@ function checkAnswerAndPlayAgainTomorrow() {
   animateQuizEnd();
   setCookie("lastPlayed", new Date().toISOString(), 1);
 }
-
 
 function getCorrectAnswer(question) {
   var correctAnswer = question.answers.find(answer => answer.correct);
