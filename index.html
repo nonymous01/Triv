@@ -6,42 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz</title>
   <link rel="stylesheet" href="./index.css">
-  <style>
-    .PPPP {
-      display: none;
-    }
-
-    .custom-alert {
-      background-color: #f1f1f1e7;
-      color: #e4b16f;
-      font-size: 1rem;
-      padding: 10px;
-      border: 1px solid #f5c6cb;
-      border-radius: 25px;
-      margin: 10px 0;
-      position: relative;
-      bottom: 200px;
-      display: none;
-      /* Assurez-vous que la boîte modale est initialement cachée */
-    }
-
-    .custom-alert-success {
-      background-color: #ffffff;
-      color: #155724;
-      font-size: 2rem;
-      padding: 10px;
-      border: 1px solid #111612;
-      border-radius: 25px;
-      margin: 10px 0;
-      position: relative;
-      bottom: 200px;
-      display: none;
-      /* Assurez-vous que la boîte modale est initialement cachée */
-    }
-  </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -53,20 +20,19 @@
         <p class="question">En quelle année la première Coupe d'Afrique des Nations a-t-elle eu lieu ?</p>
       </div>
       <div class="dfghjkl">
-        <input type="radio" name="q1" value="paris" id="q1a"> <label for="q1a">1957</label><br>
-        <input type="radio" name="q1" value="berlin" id="q1b"> <label for="q1b">1963</label><br>
+        <input type="radio" name="q1" value="paris" id="q1a"> <label for="q1a" id="q1a-label">1957</label><br>
+        <input type="radio" name="q1" value="berlin" id="q1b"> <label for="q1b" id="q1b-label">1963</label><br>
       </div>
       <div class="sdfghjkyhij">
-        <input type="radio" name="q1" value="londres" id="q1c"> <label for="q1c">1952</label><br>
-        <input type="radio" name="q1" value="rome" id="q1d"> <label for="q1d">2022</label><br>
+        <input type="radio" name="q1" value="londres" id="q1c"> <label for="q1c" id="q1c-label">1952</label><br>
+        <input type="radio" name="q1" value="rome" id="q1d"> <label for="q1d" id="q1d-label">2022</label><br>
       </div>
     </div>
   </div>
 
   <div class="custom-alert" id="custom-alert">
     <div class="AAG"><span id="custom-alert-message"></span></div>
-    <div class="AAG1"><button class="eeeee"  onclick="closeCustomAlert()">OK</button></div>
-    
+    <div class="AAG1"><button class="eeeee" onclick="closeCustomAlert()">OK</button></div>
   </div>
 
   <div class="custom-alert-success" id="custom-alert-success">
@@ -107,39 +73,41 @@
         showAlert("Vous avez déjà joué aujourd'hui! Revenez demain pour un nouveau Quiz.");
         return;
       }
-      // Vérifier la réponse
+
       var selectedAnswer = document.querySelector('input[name="q1"]:checked');
       if (!selectedAnswer) {
         showAlert("Veuillez sélectionner une réponse.");
         return;
       }
+
       var resultMessage = "";
+      var labelId = selectedAnswer.id + "-label";
+
       if (selectedAnswer.value === "paris") {
-        resultMessage = "Félicitations 🎊🎊,  rendez-vous demain même heure pour un nouveau Quiz!";
+        resultMessage = "Félicitations !!!,  Rendez-vous demain à la même heure pour un nouveau Quiz!";
         showSuccessAlert(resultMessage);
+        document.getElementById(labelId).style.backgroundColor = "green"
       } else {
-        resultMessage = "Désolé 😓😓, ce n'est pas la bonne réponse ! rendez-vous demain pour un nouveau Quiz !";
-        showAlert(resultMessage);
+        resultMessage = "Désolé !, ce n'est pas la bonne réponse ! Rendez-vous demain pour un nouveau Quiz !";
+        showAlert(resultMessage)
+        document.getElementById(labelId).style.backgroundColor = "red"
       }
-      // Animation pour indiquer la fin du quiz
+      
       animateQuizEnd();
 
-      // Mémoriser la date du jour
       setCookie("lastPlayed", new Date().toISOString(), 1);
     }
 
     function animateQuizEnd() {
-      // Ajouter une classe CSS pour déclencher une animation
       document.body.classList.add('quiz-ended');
 
-      // Retirer la classe après une courte période pour réinitialiser l'animation
       setTimeout(() => {
         document.body.classList.remove('quiz-ended');
-      }, 2000); // 2000 millisecondes (2 secondes) ici, ajustez selon vos besoins
+      }, 2000);
     }
 
     function setCookie(name, value, expirationInDays) {
-      let date = new Date()
+      let date = new Date();
       date.setTime(date.getTime() + (expirationInDays * 24 * 60 * 60 * 1000));
       let expires = "expires=" + date.toUTCString();
       document.cookie = name + "=" + value + ";" + expires + ";path=/";
@@ -157,28 +125,20 @@
     }
 
     function showAlert(message) {
-      // Afficher le message dans la boîte modale
       document.getElementById('custom-alert-message').innerText = message;
-
-      // Afficher la boîte modale
       document.getElementById('custom-alert').style.display = 'block';
     }
 
     function showSuccessAlert(message) {
-      // Afficher le message de réussite dans la boîte modale de succès
       document.getElementById('custom-alert-message-success').innerText = message;
-
-      // Afficher la boîte modale de succès
       document.getElementById('custom-alert-success').style.display = 'block';
     }
 
     function closeCustomAlert() {
-      // Fermer la boîte modale
       document.getElementById('custom-alert').style.display = 'none';
     }
 
     function closeCustomAlertSuccess() {
-      // Fermer la boîte modale de succès
       document.getElementById('custom-alert-success').style.display = 'none';
     }
   </script>

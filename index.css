@@ -73,8 +73,48 @@ label {
 }
 
 input[type="radio"]:checked + label {
-  background-color: #48b626;
+  background-color: #c4ca67;
 }
+.PPPP {
+  display: none;
+}
+
+.custom-alert {
+  background-color: #f1f1f1e7;
+  color: #e4b16f;
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid #f5c6cb;
+  border-radius: 25px;
+  margin: 10px 0;
+  position: relative;
+  bottom: 200px;
+  display: none;
+}
+
+.custom-alert-success {
+  background-color: #ffffff;
+  color: #155724;
+  font-size: 2rem;
+  padding: 10px;
+  border: 1px solid #111612;
+  border-radius: 25px;
+  margin: 10px 0;
+  position: relative;
+  bottom: 200px;
+  display: none;
+}
+
+.correct-label {
+  color: green; /* Couleur verte si la réponse est vraie */
+  background-color: green;
+}
+
+.incorrect-label {
+  color: rgb(255, 255, 255); /* Couleur rouge si la réponse est fausse */
+  background-color: #ff0000;
+}
+
 
 .PPPP {
   font-family: 'Poppins', sans-serif;
@@ -220,7 +260,48 @@ button:hover {
   .PPPP {
     display: none;
   }
+  .PPPP {
+    display: none;
+  }
   
+  .custom-alert {
+    background-color: #f1f1f1e7;
+    color: #e4b16f;
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 25px;
+    margin: 10px 0;
+    position: relative;
+    bottom: 200px;
+    display: none;
+  }
+  
+  .custom-alert-success {
+    background-color: #ffffff;
+    color: #155724;
+    font-size: 2rem;
+    padding: 10px;
+    border: 1px solid #111612;
+    border-radius: 25px;
+    margin: 10px 0;
+    position: relative;
+    bottom: 200px;
+    display: none;
+  }
+  
+  .correct-label {
+    background-color: green;
+    color: rgb(255, 255, 255); /* Couleur verte si la réponse est vraie */
+  }
+  
+  .incorrect-label {
+    color: rgb(255, 253, 253);
+    background-color: red; /* Couleur rouge si la réponse est fausse */
+  }
+  .incorrect-label.input[type="radio"]:checked + label {
+    background-color: green;
+  }
   .custom-alert,
   .custom-alert-success {
     background-color: #ffffffe7;
@@ -234,6 +315,7 @@ button:hover {
     position: relative;
     bottom: 800px;
     display: none;
+    z-index: 1;
   }
   .AAG1{
     width: 100%;
