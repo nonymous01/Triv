@@ -84,12 +84,13 @@
       var labelId = selectedAnswer.id + "-label";
 
       if (selectedAnswer.value === "paris") {
-        resultMessage = "Félicitations !!!,  Rendez-vous demain à la même heure pour un nouveau Quiz!";
+        resultMessage = "Félicitations !!!  Rendez-vous demain à la même heure pour un nouveau Quiz.";
         showSuccessAlert(resultMessage);
         document.getElementById(labelId).style.backgroundColor = "green"
       } else {
-        resultMessage = "Désolé !, ce n'est pas la bonne réponse ! Rendez-vous demain pour un nouveau Quiz !";
+        resultMessage = "Désolé, ce n'est pas la bonne réponse. Rendez-vous demain pour un nouveau Quiz.";
         showAlert(resultMessage)
+        
         document.getElementById(labelId).style.backgroundColor = "red"
       }
       
