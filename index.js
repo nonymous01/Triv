@@ -1,11 +1,11 @@
 var quizData = [
   {
-    "question": "Qui était l'entraîneur de l'équipe nationale du Sénégal lors de la CAN 2019 remportée par l'Algérie ?",
+    "question": "Quel ancien international égyptien a été l'entraîneur de l'équipe nationale d'Égypte lors de la CAN 2008 ?",
     "answers": [
-      {"option": "Clarence Seedorf", "correct": false},
-      {"option": "Aliou Cissé", "correct": true},
-      {"option": "avier Aguirre", "correct": false},
-      {"option": "Hervé Renard", "correct": false}
+      {"option": "Mahmoud El-Gohary", "correct": false},
+      {"option": "Mohamed Salah", "correct": false},
+      {"option": "Ahmed Hassan", "correct": false},
+      {"option": "Hassan Shehata", "correct": true}
     ]
   }
 ];
