@@ -52,7 +52,7 @@
     <div class="fofffffff">
       <h1 class="quiz"><b>Quiz du jour</b></h1>
       <div class="titre">
-        <p class="question">Question : En quelle année la première Coupe d'Afrique des Nations a-t-elle eu lieu ?</p>
+        <p class="question">En quelle année la première Coupe d'Afrique des Nations a-t-elle eu lieu ?</p>
       </div>
       <div class="dfghjkl">
         <input type="radio" name="q1" value="paris" id="q1a"> <label for="q1a">1957</label><br>
@@ -105,26 +105,23 @@
     function checkAnswer() {
       // Si déjà joué aujourd'hui
       if (hasPlayedToday()) {
-        showAlert("Vous avez déjà joué aujourd'hui! Revenez demain pour plus de plaisir.");
+        showAlert("Vous avez déjà joué aujourd'hui! Revenez demain pour un nouveau Quiz.");
         return;
       }
-
       // Vérifier la réponse
       var selectedAnswer = document.querySelector('input[name="q1"]:checked');
       if (!selectedAnswer) {
         showAlert("Veuillez sélectionner une réponse.");
         return;
       }
-
       var resultMessage = "";
       if (selectedAnswer.value === "paris") {
-        resultMessage = "Félicitations 🎊🎊,  rendez-vous demain même heure!";
+        resultMessage = "Félicitations 🎊🎊,  rendez-vous demain même heure pour un nouveau Quiz!";
         showSuccessAlert(resultMessage);
       } else {
-        resultMessage = "Désolé 😓😓, tu as tapé poto hein 🤣🤣 rendez-vous demain même heure!";
+        resultMessage = "Désolé 😓😓, ce n'est pas la bonne réponse ! rendez-vous demain pour un nouveau Quiz !";
         showAlert(resultMessage);
       }
-
       // Animation pour indiquer la fin du quiz
       animateQuizEnd();
 
