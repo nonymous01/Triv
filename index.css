@@ -223,11 +223,13 @@ button:hover {
     font-size: 12vw;
     justify-content: center;
     display: flex;
+    position: relative;
+    top: 8px;
     text-align: center;
   }
 
   .question {
-    font-size: 5vw;
+    font-size: 4.5vw;
     padding-top: 2em;
     position: relative;
     justify-content: center;
@@ -237,6 +239,7 @@ button:hover {
     z-index: 1;
     background-color: #0A5757;
     width: 80%;
+    top: 14px;
     margin: 0 auto;
     border-radius: 20px;
     position: relative;
@@ -297,7 +300,7 @@ button:hover {
   label {
     padding: 2vh 5vw;
     font-size: 5vw;
-    height: 40px;
+    height: 30px;
     position: relative;
     left: -2%;
   }
@@ -306,7 +309,7 @@ button:hover {
     padding: 4vh 3vw;
     font-size: 4.5vw;
     position: relative;
-    bottom: 0px;
+    bottom: 30px;
     width: 50%;
     justify-content: center;
     border-radius: 20px;
