@@ -1,11 +1,11 @@
 var quizData = [
   {
-    "question": "Quel pays était dirigé par l'entraîneur Gernot Rohr lors de la CAN 2019 ?",
+    "question": "Qui était l'entraîneur de l'équipe nationale du Sénégal lors de la CAN 2019 remportée par l'Algérie ?",
     "answers": [
-      {"option": "Ghana", "correct": false},
-      {"option": "Cameroun", "correct": false},
-      {"option": "Maroc", "correct": false},
-      {"option": "Nigeria", "correct": true}
+      {"option": "Clarence Seedorf", "correct": false},
+      {"option": "Aliou Cissé", "correct": true},
+      {"option": "avier Aguirre", "correct": false},
+      {"option": "Hervé Renard", "correct": false}
     ]
   }
 ];
