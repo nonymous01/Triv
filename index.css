@@ -81,7 +81,7 @@ input[type="radio"]:checked + label {
 
 .PPPP {
   font-family: 'Poppins', sans-serif;
-  background-color: #015012e0;
+  background-color: #045014e0;
   width: 80%;
   height: 320px;
   position: relative;
@@ -142,7 +142,7 @@ button:hover {
 }
 
 .custom-alert {
-  background-color: #ffcccb;
+  background-color: #380a0a;
   padding: 9vh;
   position: relative;
   bottom: 621px;
@@ -150,7 +150,7 @@ button:hover {
   border: 1px solid #d33;
   border-radius: 1vw;
   text-align: center;
-  color: #d33;
+  color: rgb(190, 166, 166);
 }
 
 /* Media Queries pour les écrans de 300 à 700 pixels */
@@ -214,33 +214,49 @@ button:hover {
   .custom-alert,
   .custom-alert-success {
     background-color: #ffffffe7;
-    color: #c4350a;
+    color: #df0000;
     font-size:2rem;
+    display: flex;
     padding: 10px;
-    border: 1px solid #f5c6cb;
+    border: 2px solid #ff0019;
     border-radius: 25px;
     margin: 10px 0;
     position: relative;
     bottom: 800px;
     display: none;
   }
-  
+  .AAG1{
+    width: 100%;
+    height: 50%;
+  }
+  .AAG{
+    width: 100%;
+    height: 50%;
+  }
+
+  .custom-alert-message{
+    font-size: 123px;
+  }
   .custom-alert-success {
-    background-color: #ffffff;
+    background-color: #61f743;
     color: #155724;
   }
   .custom-alert,
   .custom-alert-success {
-    font-size: 0.8rem;
+    font-size: 1rem;
     bottom: 500px;
     height: 120px;
   }
   .eeeee{
-    background-color: #155724;
-    height: 2px;
-    width: 40px;
+    background-color: #018634;
+    height: 1px;
+    width: 140px;
+    font-size: 1rem;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
     position: relative;
-    bottom: 20px;
-    left: 10%;
+    bottom: 30px;
+    left: 5%;
   }
 }
