@@ -73,7 +73,7 @@ label {
 }
 
 input[type="radio"]:checked + label {
-  background-color: #b93703;
+  background-color: #48b626;
 }
 
 .PPPP {
