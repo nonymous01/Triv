@@ -1,0 +1,134 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+h1 {
+  font-size: 5vw;
+  margin-bottom: 4vh;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+}
+.quiz b{
+  font-size: 7vw;
+  color: #864c00;
+  font-family: 'Poppins', sans-serif;}
+.question{
+  font-size: 2.8vw;
+  border-radius: 22px;
+  background-color: #2d944f;
+  width: 90%;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  bottom: 12px;
+  margin: 0 auto;
+}
+.fofffffff{
+  position: relative;
+  bottom: 110px;
+}
+#quiz-questions {
+  padding: 4vw;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  top: 212px;
+  border-radius: 2vw;
+  box-shadow: 0 0 2vw rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 80%;
+  max-width:1000px; /* Ajuster la largeur maximale selon les besoins */
+}
+
+input[type="radio"] {
+  display: none; /* Masquer le bouton radio par défaut */
+}
+
+label {
+  display: inline-block;
+  background-color: #041604;
+  color: #fff;
+  padding: 2vh 4vw;
+  cursor: pointer;
+  margin: 1vh 0;
+  height: 80px;
+  font-size: 3rem;
+  width: 20%;
+  padding-top: 40px;
+    border-radius: 1vw;
+  text-align: center;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #e26009;
+}
+  .PPPP{
+    font-family: 'Poppins', sans-serif;
+    background-color: #015012e0;
+    width: 80%;
+    height: 320px;
+    position: relative;
+    bottom: 102px;
+    z-index: 1;
+    border-radius: 12px;
+    color: white;
+    justify-content: center;
+    text-align: center;
+  }
+button {
+  margin-top: 4vh;
+  padding: 7vh 4vw;
+  cursor: pointer;
+  background-color: #013d01;
+  color: #fff;
+  border: none;
+  border-radius: 1vw;
+  font-size: 3vw;
+  position: relative;
+  bottom: 20px;
+}
+
+button:hover {
+  background-color: #bb4b00;
+}
+
+#quiz-result {
+  margin-top: 4vh;
+  font-weight: bold;
+  font-size: 2.5vw;
+  
+}
+.titre{
+  z-index: 1;
+}
+.dfghjkl{
+  width: 100%;
+  height: 200px;
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+}
+.sdfghjkyhij{
+  width: 100%;
+  height: 200px;
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+}
+.custom-alert {
+  background-color: #ffcccb;
+  padding: 9vh;
+  position: relative;
+  bottom: 621px;
+  margin-top: 4vh;
+  border: 1px solid #d33;
+  border-radius: 1vw;
+  text-align: center;
+  color: #d33;
+}
