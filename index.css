@@ -213,7 +213,7 @@ button:hover {
   
   .custom-alert,
   .custom-alert-success {
-    background-color: #ffffffe7;
+    background-color: #f3efefe7;
     color: #c4350a;
     font-size: 2rem;
     padding: 10px;
@@ -233,14 +233,14 @@ button:hover {
   .custom-alert-success {
     font-size: 1rem;
     bottom: 500px;
-    height: 50px;
+    height: 120px;
   }
   .eeeee{
     background-color: #155724;
-    height: 10px;
+    height: 2px;
     width: 40px;
     position: relative;
     bottom: 10px;
-    left: -20%;
+    left: 15%;
   }
 }
