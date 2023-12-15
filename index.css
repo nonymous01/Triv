@@ -6,7 +6,7 @@ body {
   height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #ffffff;
+  background-color: #a6ada87e;
 }
 
 h1 {
@@ -20,7 +20,7 @@ h1 {
   font-size: 7vw;
   position: relative;
   left: 4%;
-  color: #864c00;
+  color: #e46e00;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -29,13 +29,11 @@ h1 {
   justify-content: center;
   padding-top: 1.5em;
   border-radius: 22px;
-  background-color: #092709;
   width: 90%;
   height: 150px;
   color: white;
   font-family: 'Poppins', sans-serif;
   position: relative;
-  bottom: 12px;
   margin: 0 auto;
 }
 
@@ -62,9 +60,8 @@ input[type="radio"] {
 
 label {
   display: inline-block;
-  background-color: #ffffff;
-  border: 1px solid orangered;
-  color: #000000;
+  border: 2px solid rgb(187, 133, 113);
+  color: rgb(0, 0, 0);
   padding: 2vh 4vw;
   cursor: pointer;
   margin: 1vh 0;
@@ -76,7 +73,7 @@ label {
 }
 
 input[type="radio"]:checked + label {
-  background-color: #e26009;
+  background-color: #b93703;
 }
 
 .PPPP {
@@ -119,6 +116,9 @@ button:hover {
 
 .titre {
   z-index: 1;
+  background-color: #092709;
+  width: 100%;
+  border-radius: 20px;
 }
 
 .dfghjkl {
@@ -147,7 +147,7 @@ button:hover {
   position: relative;
   bottom: 621px;
   margin-top: 4vh;
-  border: 1px solid #d33;
+  border: 2px solid #d33;
   border-radius: 1vw;
   text-align: center;
   color: rgb(190, 166, 166);
@@ -168,7 +168,7 @@ button:hover {
     padding-top: 2em;
     position: relative;
     justify-content: center;
-    left: 2%;
+    
   }
 
   .fofffffff {
@@ -193,7 +193,9 @@ button:hover {
     position: relative;
     bottom: 140px;
     width: 60%;
-    background-color: #0e4204;
+    left: 3%;
+    border-radius: 20px;
+    background-color: #092709;
   }
 
   #quiz-result {
