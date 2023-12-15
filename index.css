@@ -61,10 +61,9 @@ label {
   padding: 2vh 4vw;
   cursor: pointer;
   margin: 1vh 0;
-  height: 30px;
+  height: 60px;
   font-size: 3rem;
   width: 20%;
-  padding-top: 30px;
     border-radius: 1vw;
   text-align: center;
 }
