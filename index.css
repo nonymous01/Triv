@@ -193,7 +193,7 @@ button:hover {
     bottom: 140px;
     left: 10%;
     width: 60%;
-    background-color: #864c00;
+    background-color: #865009;
   }
 
   #quiz-result {
@@ -206,5 +206,41 @@ button:hover {
     justify-content: center;
     text-align: center;
     left: 8%;
+  }
+  .PPPP {
+    display: none;
+  }
+  
+  .custom-alert,
+  .custom-alert-success {
+    background-color: #ffffffe7;
+    color: #c4350a;
+    font-size: 2rem;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 25px;
+    margin: 10px 0;
+    position: relative;
+    bottom: 800px;
+    display: none;
+  }
+  
+  .custom-alert-success {
+    background-color: #ffffff;
+    color: #155724;
+  }
+  .custom-alert,
+  .custom-alert-success {
+    font-size: 1rem;
+    bottom: 500px;
+    height: 50px;
+  }
+  .eeeee{
+    background-color: #155724;
+    height: 10px;
+    width: 40px;
+    position: relative;
+    bottom: 10px;
+    left: -20%;
   }
 }
