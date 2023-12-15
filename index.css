@@ -214,7 +214,7 @@ button:hover {
   .custom-alert-success {
     background-color: #ffffffe7;
     color: #c4350a;
-    font-size: 2rem;
+    font-size:2rem;
     padding: 10px;
     border: 1px solid #f5c6cb;
     border-radius: 25px;
@@ -230,7 +230,7 @@ button:hover {
   }
   .custom-alert,
   .custom-alert-success {
-    font-size: 1rem;
+    font-size: 0.8rem;
     bottom: 500px;
     height: 120px;
   }
