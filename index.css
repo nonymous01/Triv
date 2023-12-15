@@ -170,6 +170,14 @@ button:hover {
     justify-content: center;
     
   }
+  .titre {
+    z-index: 1;
+    background-color: #092709;
+    width: 100%;
+    border-radius: 20px;
+    position: relative;
+    left: 10px;
+  }
 
   .fofffffff {
     bottom: 100px;
