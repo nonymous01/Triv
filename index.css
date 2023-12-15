@@ -167,7 +167,7 @@ button:hover {
     padding-top: 2em;
     position: relative;
     justify-content: center;
-    left: 6%;
+    left: 2%;
   }
 
   .fofffffff {
@@ -182,6 +182,8 @@ button:hover {
     padding: 2vh 5vw;
     font-size: 5vw;
     height: 40px;
+    position: relative;
+    left: -2%;
   }
 
   button {
@@ -189,7 +191,8 @@ button:hover {
     font-size: 2.5vw;
     position: relative;
     bottom: 140px;
-    left: 16%;
+    left: 18%;
+    width: 60%;
     background-color: #864c00;
   }
 
