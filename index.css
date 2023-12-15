@@ -15,14 +15,19 @@ h1 {
   color: #333;
   font-family: 'Poppins', sans-serif;
 }
-.quiz b{
+
+.quiz b {
   font-size: 7vw;
+  position: relative;
+  left: 4%;
   color: #864c00;
-  font-family: 'Poppins', sans-serif;}
-.question{
+  font-family: 'Poppins', sans-serif;
+}
+
+.question {
   font-size: 2.8vw;
   justify-content: center;
-  padding-top: 52px;
+  padding-top: 1.5em;
   border-radius: 22px;
   background-color: #092709;
   width: 90%;
@@ -33,10 +38,12 @@ h1 {
   bottom: 12px;
   margin: 0 auto;
 }
-.fofffffff{
+
+.fofffffff {
   position: relative;
   bottom: 110px;
 }
+
 #quiz-questions {
   padding: 4vw;
   position: relative;
@@ -46,11 +53,11 @@ h1 {
   box-shadow: 0 0 2vw rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 80%;
-  max-width:1000px; /* Ajuster la largeur maximale selon les besoins */
+  max-width: 1000px;
 }
 
 input[type="radio"] {
-  display: none; /* Masquer le bouton radio par défaut */
+  display: none;
 }
 
 label {
@@ -64,26 +71,28 @@ label {
   height: 60px;
   font-size: 3rem;
   width: 20%;
-    border-radius: 1vw;
+  border-radius: 1vw;
   text-align: center;
 }
 
 input[type="radio"]:checked + label {
   background-color: #e26009;
 }
-  .PPPP{
-    font-family: 'Poppins', sans-serif;
-    background-color: #015012e0;
-    width: 80%;
-    height: 320px;
-    position: relative;
-    bottom: 102px;
-    z-index: 1;
-    border-radius: 12px;
-    color: white;
-    justify-content: center;
-    text-align: center;
-  }
+
+.PPPP {
+  font-family: 'Poppins', sans-serif;
+  background-color: #015012e0;
+  width: 80%;
+  height: 320px;
+  position: relative;
+  bottom: 102px;
+  z-index: 1;
+  border-radius: 12px;
+  color: white;
+  justify-content: center;
+  text-align: center;
+}
+
 button {
   margin-top: 4vh;
   padding: 7vh 4vw;
@@ -105,12 +114,13 @@ button:hover {
   margin-top: 4vh;
   font-weight: bold;
   font-size: 2.5vw;
-  
 }
-.titre{
+
+.titre {
   z-index: 1;
 }
-.dfghjkl{
+
+.dfghjkl {
   width: 100%;
   height: 100px;
   display: flex;
@@ -119,7 +129,8 @@ button:hover {
   position: relative;
   justify-content: center;
 }
-.sdfghjkyhij{
+
+.sdfghjkyhij {
   left: 4%;
   position: relative;
   width: 100%;
@@ -128,6 +139,7 @@ button:hover {
   gap: 30px;
   justify-content: center;
 }
+
 .custom-alert {
   background-color: #ffcccb;
   padding: 9vh;
@@ -138,4 +150,59 @@ button:hover {
   border-radius: 1vw;
   text-align: center;
   color: #d33;
+}
+
+/* Media Queries pour les écrans de 300 à 700 pixels */
+@media (max-width: 700px) {
+  h1 {
+    font-size: 7vw;
+  }
+
+  .quiz b {
+    font-size: 10vw;
+  }
+
+  .question {
+    font-size: 5vw;
+    padding-top: 2em;
+    position: relative;
+    justify-content: center;
+    left: 6%;
+  }
+
+  .fofffffff {
+    bottom: 100px;
+  }
+
+  #quiz-questions {
+    top: 100px;
+  }
+
+  label {
+    padding: 2vh 5vw;
+    font-size: 5vw;
+    height: 40px;
+  }
+
+  button {
+    padding: 5vh 3vw;
+    font-size: 2.5vw;
+    position: relative;
+    bottom: 140px;
+    left: 32%;
+    background-color: #864c00;
+  }
+
+  #quiz-result {
+    font-size: 2vw;
+  }
+
+  .dfghjkl,
+  .sdfghjkyhij {
+    gap: 15px;
+    background-color: #333;
+    justify-content: center;
+    text-align: center;
+    left: 6%;
+  }
 }
