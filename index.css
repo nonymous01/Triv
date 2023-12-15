@@ -240,7 +240,7 @@ button:hover {
     height: 2px;
     width: 40px;
     position: relative;
-    bottom: 10px;
-    left: 15%;
+    bottom: 20px;
+    left: 10%;
   }
 }
