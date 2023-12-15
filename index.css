@@ -191,7 +191,6 @@ button:hover {
     font-size: 2.5vw;
     position: relative;
     bottom: 140px;
-    left: 10%;
     width: 60%;
     background-color: #865009;
   }
@@ -213,7 +212,7 @@ button:hover {
   
   .custom-alert,
   .custom-alert-success {
-    background-color: #f3efefe7;
+    background-color: #ffffffe7;
     color: #c4350a;
     font-size: 2rem;
     padding: 10px;
