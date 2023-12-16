@@ -20,6 +20,7 @@ h1 {
   font-size: 7vw;
   position: relative;
   left: 4%;
+  bottom: 22px;
   color: #013d01;
   font-family: 'Poppins', sans-serif;
 }
@@ -235,7 +236,7 @@ button:hover {
   }
 
   #quiz-questions {
-    top: 30px;
+    top: 10px;
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -268,11 +269,11 @@ button:hover {
   }
 
   button {
-    padding: 5vh 3vw;
+    padding: 4vh 3vw;
     font-size: 4.5vw;
     position: relative;
-    bottom: 1px;
-    width: 60%;
+    bottom: 20px;
+    width: 50%;
     left: 3%;
     border-radius: 20px;
     background-color: #092709;
