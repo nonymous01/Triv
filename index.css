@@ -60,14 +60,14 @@ input[type="radio"] {
 
 label {
   display: inline-block;
-  border: 2px solid rgb(105, 230, 4);
+  border: 2px solid rgb(87, 230, 4);
   color: rgb(0, 0, 0);
   padding: 2vh 4vw;
   cursor: pointer;
   margin: 1vh 0;
   height: 60px;
   font-size: 3rem;
-  width: 100%;
+  width: 70%;
   border-radius: 1vw;
   text-align: center;
 }
@@ -112,6 +112,7 @@ input[type="radio"]:checked + label {
 
 .grid-item {
   text-align: center;
+  
 }
 
 
@@ -243,11 +244,19 @@ button:hover {
   }
 #q1d-label {
   position: relative;
-  left: 52%;
+  left: 40%;
+}
+#q1a-label {
+  position: relative;
+  left: 20%;
+}
+#q1c-label {
+  position: relative;
+  left: 20%;
 }
 #q1b-label {
   position: relative;
-  left: 52%;
+  left: 40%;
 }
 
   label {
