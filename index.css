@@ -60,14 +60,14 @@ input[type="radio"] {
 
 label {
   display: inline-block;
-  border: 2px solid rgb(187, 133, 113);
+  border: 2px solid rgb(105, 230, 4);
   color: rgb(0, 0, 0);
   padding: 2vh 4vw;
   cursor: pointer;
   margin: 1vh 0;
   height: 60px;
   font-size: 3rem;
-  width: 20%;
+  width: 100%;
   border-radius: 1vw;
   text-align: center;
 }
@@ -104,6 +104,16 @@ input[type="radio"]:checked + label {
   bottom: 200px;
   display: none;
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.grid-item {
+  text-align: center;
+}
+
 
 .correct-label {
   color: green; /* Couleur verte si la réponse est vraie */
@@ -224,8 +234,21 @@ button:hover {
   }
 
   #quiz-questions {
-    top: 100px;
+    top: 30px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    left: -2%;
   }
+#q1d-label {
+  position: relative;
+  left: 52%;
+}
+#q1b-label {
+  position: relative;
+  left: 52%;
+}
 
   label {
     padding: 2vh 5vw;
@@ -239,7 +262,7 @@ button:hover {
     padding: 5vh 3vw;
     font-size: 4.5vw;
     position: relative;
-    bottom: 140px;
+    bottom: 1px;
     width: 60%;
     left: 3%;
     border-radius: 20px;
@@ -255,10 +278,11 @@ button:hover {
     gap: 15px;
     justify-content: center;
     text-align: center;
-    left: 8%;
+    left: 1%;
   }
   .PPPP {
     display: none;
+    
   }
   .PPPP {
     display: none;
@@ -304,12 +328,12 @@ button:hover {
   }
   .custom-alert,
   .custom-alert-success {
-    background-color: #ffffffe7;
+    background-color: #ffe6e6e7;
     color: #df0000;
     font-size:2rem;
     display: flex;
     padding: 10px;
-    border: 2px solid #ff0019;
+    border: 2px solid #ff0000;
     border-radius: 25px;
     margin: 10px 0;
     position: relative;
@@ -320,23 +344,28 @@ button:hover {
   .AAG1{
     width: 100%;
     height: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
   }
   .AAG{
     width: 100%;
+    text-align: center;
     height: 50%;
   }
-
+.AAG1 
   .custom-alert-message{
     font-size: 123px;
   }
   .custom-alert-success {
-    background-color: #61f743;
+    background-color: #a9fd98;
     color: #155724;
   }
   .custom-alert,
   .custom-alert-success {
     font-size: 1rem;
-    bottom: 500px;
+    bottom: 200px;
     height: 120px;
   }
   .eeeee{
@@ -348,7 +377,21 @@ button:hover {
     text-align: center;
     align-items: center;
     position: relative;
-    bottom: 30px;
-    left: 5%;
+    bottom: 10px;
   }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    left: -14%;
+    position: relative;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    margin-top: 10px; /* Ajout d'une marge en haut pour la séparation */
+  }
+  
+  .grid-item {
+    text-align: center;
+  }
+  
 }

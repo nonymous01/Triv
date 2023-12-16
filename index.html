@@ -17,15 +17,9 @@
     <div class="fofffffff">
       <h1 class="quiz"><b>Quiz du jour</b></h1>
       <div class="titre">
-        <p class="question">En quelle année la première Coupe d'Afrique des Nations a-t-elle eu lieu ?</p>
+        <p class="question"></p>
       </div>
       <div class="dfghjkl">
-        <input type="radio" name="q1" value="paris" id="q1a"> <label for="q1a" id="q1a-label">1957</label><br>
-        <input type="radio" name="q1" value="berlin" id="q1b"> <label for="q1b" id="q1b-label">1963</label><br>
-      </div>
-      <div class="sdfghjkyhij">
-        <input type="radio" name="q1" value="londres" id="q1c"> <label for="q1c" id="q1c-label">1952</label><br>
-        <input type="radio" name="q1" value="rome" id="q1d"> <label for="q1d" id="q1d-label">2022</label><br>
       </div>
     </div>
   </div>
@@ -37,7 +31,7 @@
 
   <div class="custom-alert-success" id="custom-alert-success">
     <div class="AAG"><span id="custom-alert-message-success"></span></div>
-    <div class="AAG1"><button onclick="closeCustomAlertSuccess()">OK</button></div>
+    <div class="AAG1"><button class="eeeee" onclick="closeCustomAlertSuccess()">OK</button></div>
   </div>
 
   <div class="PPPP" id="gatter">
@@ -46,13 +40,129 @@
   <button onclick="checkAnswer()">Vérifier la réponse</button>
 
   <script>
-    function hasPlayedToday() {
+    var quizData = [
+      {
+        question: "En quelle année la première Coupe d'Afrique des Nations a-t-elle eu lieu ?",
+        answers: [
+          { option: "1957", correct: true },
+          { option: "1963", correct: false },
+          { option: "1952", correct: false },
+          { option: "2022", correct: false }
+        ]
+      },
+      {
+        question: "Quelle est la nation qui a remporté le plus grand nombre de titres de la CAN jusqu'à présent ?",
+        answers: [
+          { option: "Mali", correct: false },
+          { option: "Nigeria", correct: false },
+          { option: "Égypte", correct: true },
+          { option: "Cameroun", correct: false }
+        ]
+      },
+      {
+        question: "Quel pays était entraîné par Florent Ibenge lors de la CAN 2019 ?",
+        answers: [
+          { option: "Gabon", correct: false },
+          { option: "RDC", correct: true },
+          { option: "Mali", correct: false },
+          { option: "Burkina Faso", correct: false }
+        ]
+      },
+      {
+        question: "Qui était l'entraîneur de l'Égypte lors de la CAN 2017 ?",
+        answers: [
+          { option: "Javier Aguirre", correct: false },
+          { option: "Aliou Cissé", correct: false },
+          { option: "Hector Cuper", correct: false },
+          { option: "Hervé Renard", correct: true }
+        ]
+      }
+      ,
+      {
+        question: "Quel pays a organisé la CAN pour la première fois en 1962 ?",
+        answers: [
+          { option: "Égypte", correct: false },
+          { option: "Ghana", correct: false },
+          { option: "Soudan", correct: false },
+          { option: "Éthiopie", correct: true }
+        ]
+      }
+      ,
+      {
+        question: "Qui était l'entraîneur de l'équipe du Sénégal lors de la CAN 2002, où ils ont atteint la finale pour la première fois?",
+        answers: [
+          { option: "Lamine N'Diaye", correct: false },
+          { option: "Aliou Cissé", correct: false },
+          { option: "Omar Daf", correct: false },
+          { option: "Bruno Metsu", correct: true }
+        ]
+      }
+      ,
+      {
+        question: "Quel pays était dirigé par l'entraîneur Gernot Rohr lors de la CAN 2019 ?",
+        answers: [
+          { option: "Ghana", correct: false },
+          { option: "Maroc", correct: false },
+          { option: "Cameroun", correct: false },
+          { option: "Nigeria", correct: true }
+        ]
+      }
+      // Ajoutez d'autres questions ici au besoin
+    ];
+
+    // Appel initial pour afficher une question aléatoire
+    populateQuiz(quizData);
+
+    // Appel initial pour vérifier et réinitialiser le cookie quotidien
+    checkAndSetDailyCookie();
+
+    function populateQuiz(quizData) {
+      var questionContainer = document.querySelector(".titre");
+      var answerContainer = document.querySelector(".dfghjkl");
+    
+      // Sélectionnez une question aléatoire
+      var randomQuestion = quizData[Math.floor(Math.random() * quizData.length)];
+    
+      // Affichez la question
+      questionContainer.querySelector(".question").textContent = randomQuestion.question;
+    
+      // Affichez les options de réponse sous forme de grille 2x2
+      answerContainer.innerHTML = "";
+      var gridContainer = document.createElement("div");
+      gridContainer.classList.add("grid-container");
+    
+      randomQuestion.answers.forEach(function (answer, index) {
+        var gridItem = document.createElement("div");
+        gridItem.classList.add("grid-item");
+    
+        var input = document.createElement("input");
+        input.type = "radio";
+        input.name = "q1";
+        input.value = answer.option;
+        input.id = "q1" + String.fromCharCode(97 + index); // q1a, q1b, q1c, q1d
+    
+        var label = document.createElement("label");
+        label.htmlFor = input.id;
+        label.id = input.id + "-label";
+        label.textContent = answer.option;
+    
+        gridItem.appendChild(input);
+        gridItem.appendChild(label);
+        gridContainer.appendChild(gridItem);
+      });
+    
+      answerContainer.appendChild(gridContainer);
+    }
+    
+
+    function checkAndSetDailyCookie() {
       // Obtenir le cookie
       let lastPlayed = getCookie("lastPlayed");
 
       // Vérifier la date
       if (!lastPlayed) {
-        return false;
+        setCookie("lastPlayed", new Date().toISOString(), 1);
+        return;
       }
 
       // Extraire la date
@@ -60,20 +170,19 @@
 
       // Comparer à aujourd'hui
       let today = new Date();
-      return (
-        lastPlayedDate.getDate() == today.getDate() &&
-        lastPlayedDate.getMonth() == today.getMonth() &&
-        lastPlayedDate.getFullYear() == today.getFullYear()
-      );
+      if (
+        lastPlayedDate.getDate() !== today.getDate() ||
+        lastPlayedDate.getMonth() !== today.getMonth() ||
+        lastPlayedDate.getFullYear() !== today.getFullYear()
+      ) {
+        // La date a changé, réinitialiser le cookie
+        setCookie("lastPlayed", new Date().toISOString(), 1);
+        // Afficher une nouvelle question
+        populateQuiz(quizData);
+      }
     }
 
     function checkAnswer() {
-      // Si déjà joué aujourd'hui
-      if (hasPlayedToday()) {
-        showAlert("Vous avez déjà joué aujourd'hui! Revenez demain pour un nouveau Quiz.");
-        return;
-      }
-
       var selectedAnswer = document.querySelector('input[name="q1"]:checked');
       if (!selectedAnswer) {
         showAlert("Veuillez sélectionner une réponse.");
@@ -83,20 +192,35 @@
       var resultMessage = "";
       var labelId = selectedAnswer.id + "-label";
 
-      if (selectedAnswer.value === "paris") {
+      // Récupérer la question actuelle
+      var currentQuestion = document.querySelector(".titre .question").textContent;
+
+      // Trouver la question dans les données du quiz
+      var currentQuizQuestion = quizData.find(question => question.question === currentQuestion);
+
+      // Vérifier si la réponse sélectionnée est correcte
+      if (currentQuizQuestion && selectedAnswer.value === getCorrectAnswer(currentQuizQuestion)) {
         resultMessage = "Félicitations !!!  Rendez-vous demain à la même heure pour un nouveau Quiz.";
         showSuccessAlert(resultMessage);
-        document.getElementById(labelId).style.backgroundColor = "green"
+        document.getElementById(labelId).style.backgroundColor = "green";
       } else {
-        resultMessage = "Désolé, ce n'est pas la bonne réponse. Rendez-vous demain pour un nouveau Quiz.";
-        showAlert(resultMessage)
-        
-        document.getElementById(labelId).style.backgroundColor = "red"
+        // Message d'erreur avec la réponse correcte
+        resultMessage =
+          "Désolé, ce n'est pas la bonne réponse. La bonne réponse est : " +
+          getCorrectAnswer(currentQuizQuestion) +
+          ". Rendez-vous demain pour un nouveau Quiz.";
+        showAlert(resultMessage);
+        document.getElementById(labelId).style.backgroundColor = "red";
       }
-      
-      animateQuizEnd();
 
+      animateQuizEnd();
       setCookie("lastPlayed", new Date().toISOString(), 1);
+    }
+
+    // Fonction pour obtenir la réponse correcte d'une question donnée
+    function getCorrectAnswer(question) {
+      var correctAnswer = question.answers.find(answer => answer.correct);
+      return correctAnswer ? correctAnswer.option : null;
     }
 
     function animateQuizEnd() {
