@@ -33,7 +33,7 @@ h1 {
   padding-top: 1.5em;
   border-radius: 22px;
   width: 90%;
-  height: 100px;
+  height: 70px;
   color: white;
   font-family: 'Poppins', sans-serif;
   position: relative;
@@ -230,7 +230,7 @@ button:hover {
 
   .question {
     font-size: 4.5vw;
-    padding-top: 2em;
+    padding-top: 1em;
     position: relative;
     justify-content: center;
     
