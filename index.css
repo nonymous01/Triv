@@ -166,7 +166,7 @@ button {
 }
 
 button:hover {
-  background-color: #bb4b00;
+  background-color: #006134;
 }
 
 #quiz-result {
@@ -230,7 +230,7 @@ button:hover {
 
   .question {
     font-size: 4.5vw;
-    padding-top: 1em;
+    padding-top: 2em;
     position: relative;
     justify-content: center;
     
@@ -306,11 +306,12 @@ button:hover {
   }
 
   button {
-    padding: 4vh 3vw;
+    padding: 2vh 3vw;
     font-size: 4.5vw;
     position: relative;
     bottom: 30px;
     width: 50%;
+    height: 60px;
     justify-content: center;
     border-radius: 20px;
     background-color: #0A5757;
@@ -376,7 +377,7 @@ button:hover {
   }
   .custom-alert,
   .custom-alert-success {
-    background-color: #ffe6e6e7;
+    background-color: #fcedede7;
     color: #df0000;
     font-size:2rem;
     display: flex;
@@ -417,9 +418,9 @@ button:hover {
     height: 120px;
   }
   .eeeee{
-    background-color: #0ec956;
-    height: 1px;
-    width: 140px;
+    background-color: #0A5757;
+    height: 45px;
+    width: 80px;
     font-size: 1rem;
     justify-content: center;
     text-align: center;
