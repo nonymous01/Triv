@@ -157,6 +157,7 @@ button {
   position: relative;
   bottom: 20px;
   left: -1%;
+  border-radius: 15px;
 }
 
 button:hover {
@@ -173,6 +174,7 @@ button:hover {
   z-index: 1;
   background-color: #092709;
   width: 80%;
+  border-radius: 15px;
 }
 
 .dfghjkl {
@@ -268,22 +270,23 @@ button:hover {
 #q1d-label {
   position: relative;
   left: 40%;
+  border-radius: 10px;
   
 }
 #q1a-label {
   position: relative;
   left: 1%;
-  
+  border-radius: 10px;
 }
 #q1c-label {
   position: relative;
   left: 1%;
-  
+  border-radius: 10px;
 }
 #q1b-label {
   position: relative;
   left: 40%;
-  
+  border-radius: 10px;
   color: rgb(0, 0, 0);
 }
 
