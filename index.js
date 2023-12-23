@@ -51,13 +51,13 @@ function populateQuiz(quizData) {
 
 function checkAnswerAndPlayAgainTomorrow() {
   if (answerCheckedToday) {
-    showAlert("Vous avez déjà vérifié la réponse aujourd'hui. Revenez demain pour un nouveau quiz !");
+    showAlert("Vous avez déjà vérifié la réponse aujourd'hui.Revenez demain pour un nouveau quiz à la même heure !");
     return;
   }
 
   let hasPlayedToday = getCookie("hasPlayedToday");
   if (hasPlayedToday === "true") {
-    showAlert("Vous avez déjà joué aujourd'hui. Revenez demain pour un nouveau quiz !");
+    showAlert("Vous avez déjà joué aujourd'hui. Revenez demain pour un nouveau quiz à la même heure !");
     return;
   }
 
@@ -79,7 +79,7 @@ function checkAnswerAndPlayAgainTomorrow() {
     resultMessage =
       "Désolé, ce n'est pas la bonne réponse. La bonne réponse est : " +
       getCorrectAnswer(currentQuizQuestion) +
-      ". Rendez-vous demain pour un nouveau Quiz.";
+      ". Rendez-vous demain à la même heure pour un nouveau Quiz.";
     showAlert(resultMessage);
     document.getElementById(labelId).style.backgroundColor = "red";
 
