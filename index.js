@@ -1,11 +1,11 @@
 var quizData = [
   {
-    "question": "Quel ancien international égyptien a été l'entraîneur de l'équipe nationale d'Égypte lors de la CAN 2008 ?",
+    "question": "Quelle nation africaine a atteint les quarts de finale de la Coupe du Monde de la FIFA pour la première fois en 1990 ?",
     "answers": [
-      {"option": "Mahmoud El-Gohary", "correct": false},
-      {"option": "Mohamed Salah", "correct": false},
-      {"option": "Ahmed Hassan", "correct": false},
-      {"option": "Hassan Shehata", "correct": true}
+      {"option": "Guinée Équatoriale", "correct": false},
+      {"option": "Éthiopie", "correct": false},
+      {"option": "Cameroun", "correct": true},
+      {"option": "Afrique du sud", "correct": false}
     ]
   }
 ];
