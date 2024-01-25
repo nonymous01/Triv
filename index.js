@@ -1,11 +1,11 @@
 var quizData = [
   {
-    "question": "Quelle nation africaine a atteint les quarts de finale de la Coupe du Monde de la FIFA pour la première fois en 1990 ?",
+    "question": "En quelle année la première Coupe d'Afrique des Nations a-t-elle eu lieu ?",
     "answers": [
-      {"option": "Guinée Équatoriale", "correct": false},
-      {"option": "Éthiopie", "correct": false},
-      {"option": "Cameroun", "correct": true},
-      {"option": "Afrique du sud", "correct": false}
+      {"option": "1934", "correct": false},
+      {"option": "1970", "correct": false},
+      {"option": "1963", "correct": false},
+      {"option": "1957", "correct": true}
     ]
   }
 ];
