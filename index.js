@@ -1,11 +1,11 @@
 var quizData = [
   {
-    "question": "En quelle année la première Coupe d'Afrique des Nations a-t-elle eu lieu ?",
+    "question": "Quel pays a accueilli la Coupe d'Afrique des Nations en 2019 ?",
     "answers": [
-      {"option": "1934", "correct": false},
-      {"option": "1970", "correct": false},
-      {"option": "1963", "correct": false},
-      {"option": "1957", "correct": true}
+      {"option": "Égypte", "correct": true},
+      {"option": "Afrique du Sud", "correct": false},
+      {"option": "Maroc", "correct": false},
+      {"option": "Ghana", "correct": false}
     ]
   }
 ];
