@@ -1,11 +1,11 @@
 var quizData = [
   {
-    "question": "Quel pays a organisé la CAN pour la première fois en 1962 ?",
+    "question": "Qui était l'entraîneur de l'Égypte lors de la CAN 2017 ?",
     "answers": [
-      {"option": "Égypte", "correct": false},
-      {"option": "Ghana", "correct": false},
-      {"option": "Soudan", "correct": false},
-      {"option": "Éthiopie", "correct": true}
+      {"option": "Javier Aguirre", "correct": false},
+      {"option": "Aliou Cissé", "correct": false},
+      {"option": "Hector Cuper", "correct": true},
+      {"option": "Hervé Renard", "correct": false}
     ]
   }
 ];
@@ -50,20 +50,29 @@ function populateQuiz(quizData) {
 }
 
 function checkAnswerAndPlayAgainTomorrow() {
+  var currentDate = new Date();
+  var currentHour = currentDate.getHours();
+  var currentMinute = currentDate.getMinutes();
+
+  // Ajout de l'heure dans tous les messages
+  var playedTime = currentHour + ":" + (currentMinute < 10 ? "0" : "") + currentMinute;
+
   if (answerCheckedToday) {
-    showAlert("Vous avez déjà vérifié la réponse aujourd'hui.Revenez demain pour un nouveau quiz à la même heure !");
+    showAlert("Vous avez déjà vérifié la réponse aujourd'hui à " + playedTime + ". Revenez demain à la même heure pour un nouveau quiz !");
     return;
   }
 
   let hasPlayedToday = getCookie("hasPlayedToday");
   if (hasPlayedToday === "true") {
-    showAlert("Vous avez déjà joué aujourd'hui. Revenez demain pour un nouveau quiz à la même heure !");
+    var remainingTime = calculateRemainingTime(currentHour, currentMinute);
+    showAlert("Vous avez déjà joué aujourd'hui à " + playedTime + ". Revenez demain à la même heure pour un nouveau quiz ! Il vous reste " + remainingTime + " minutes pour jouer aujourd'hui.");
     return;
   }
 
   var selectedAnswer = document.querySelector('input[name="q1"]:checked');
   if (!selectedAnswer) {
-    showAlert("Veuillez sélectionner une réponse.");
+    var remainingTime = calculateRemainingTime(currentHour, currentMinute);
+    showAlert("Veuillez sélectionner une réponse à " + playedTime + ". Il vous reste " + remainingTime + " minutes pour jouer aujourd'hui.");
     return;
   }
 
@@ -73,13 +82,14 @@ function checkAnswerAndPlayAgainTomorrow() {
   var currentQuizQuestion = quizData.find(question => question.question === currentQuestion);
 
   if (currentQuizQuestion && selectedAnswer.value === getCorrectAnswer(currentQuizQuestion)) {
-    resultMessage = "Félicitations !!! Rendez-vous demain à la même heure pour un nouveau Quiz.";
+    resultMessage = "Félicitations !!! Rendez-vous demain à la même heure (" + playedTime + ") pour un nouveau Quiz.";
     showSuccessAlert(resultMessage);
   } else {
+    var remainingTime = calculateRemainingTime(currentHour, currentMinute);
     resultMessage =
       "Désolé, ce n'est pas la bonne réponse. La bonne réponse est : " +
       getCorrectAnswer(currentQuizQuestion) +
-      ". Rendez-vous demain à la même heure pour un nouveau Quiz.";
+      ". Revenez demain à la même heure (" + playedTime + ") pour un nouveau Quiz. Il vous reste " + remainingTime + " minutes pour jouer aujourd'hui.";
     showAlert(resultMessage);
     document.getElementById(labelId).style.backgroundColor = "red";
 
@@ -90,8 +100,24 @@ function checkAnswerAndPlayAgainTomorrow() {
   answerCheckedToday = true;
   setCookie("hasPlayedToday", "true", 1);
 
+  // Ajout de l'heure dans le message de succès
+  if (currentHour === 12 && currentMinute === 0) {
+    showSuccessAlert("Félicitations !!! Rendez-vous demain à la même heure (" + playedTime + ") pour un nouveau Quiz.");
+  }
+
   animateQuizEnd();
   setCookie("lastPlayed", new Date().toISOString(), 1);
+}
+
+function calculateRemainingTime(currentHour, currentMinute) {
+  // Calcul du temps restant jusqu'à l'heure de jeu suivante
+  var remainingMinutes = 60 - currentMinute;
+
+  if (currentHour === 12) {
+    remainingMinutes = 24 * 60 - currentMinute;
+  }
+
+  return remainingMinutes;
 }
 
 function getCorrectAnswer(question) {
